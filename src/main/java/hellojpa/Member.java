@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="Member")
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -25,9 +25,6 @@ public class Member {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
-
-//    private LocalDate testLocalDate;
-//    private LocalDateTime testLocalDateTime;
 
     @Lob
     private String des;
