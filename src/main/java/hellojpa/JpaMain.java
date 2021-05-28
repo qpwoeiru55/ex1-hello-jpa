@@ -32,13 +32,19 @@ public class JpaMain {
 //                System.out.println("member.name =" + member.getName());
 //            }
 //=====================================================================
-            Member member = new Member();
-//            member.setId(1L);
-            member.setUsername("ji");
-            member.setRoleType(RoleType.USER);
-            System.out.println("1");
-            em.persist(member);
-            System.out.println("2");
+            Movie movie = new Movie();
+            movie.setDirector("aa");
+            movie.setActor("A");
+            movie.setName("바람");
+            movie.setPrice(10000);
+
+            em.persist(movie);
+
+            em.flush();
+            em.clear();
+
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println(findMovie);
 
             tx.commit();
         }catch(Exception e){
