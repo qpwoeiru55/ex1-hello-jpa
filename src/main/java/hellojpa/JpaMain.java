@@ -47,10 +47,13 @@ public class JpaMain {
 //            Movie findMovie = em.find(Movie.class, movie.getId());
 //            System.out.println(findMovie);
 //=====================================================================
-            Member member = new Member();
-            member.setUsername("11");
-            member.setCreateBy("진석");
-            em.persist(member);
+            Parent parent = new Parent();
+            Child child1 = new Child();
+            Child child2 = new Child();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
 
             tx.commit();
         }catch(Exception e){
